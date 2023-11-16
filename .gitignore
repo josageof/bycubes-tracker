@@ -1,0 +1,7 @@
+old
+__pycache__
+venv
+secrets.toml
+assets
+bycubes-tracker.bat
+egs

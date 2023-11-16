@@ -1,0 +1,110 @@
+/* Relativo ao App */
+/* Hide Streamlit Branding */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* [data-testid="stHeader"]{visibility: hidden} */
+
+.stApp{
+  background-color: #95a5a6;
+}
+/* .stApp {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  bottom: -1px;
+  background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
+} */
+/* .stApp header {
+  background-color: transparent;
+} */
+
+
+/* Relativo ao container do App */
+.block-container{
+  padding: 0px 1rem;
+}
+
+/* Relativo as colunas */
+[data-testid="column"]{
+  background-color: #0E1117;
+  border: 15px solid white;
+  border-radius: 5px;
+}
+
+/* Relativo ao título */
+#projeto-tr2022027-petrobras-geofisica-campanha-2 {
+  background-color: #0E1117;
+  border: 15px solid white;
+  border-radius: 5px;
+  padding-bottom: 20px;
+  margin: 0px 0px 15px 0px;
+} 
+
+/* Relativo aos metric cards*/
+.metric-num{
+  font-size: 26px;
+  font-weight: bold;
+  color: orange;
+}
+.metric-perc{
+  font-size: 16px;
+  color: #09AB3B;
+}
+[data-testid="stMetric"] {
+  padding: 15px 30px;
+} 
+
+/* Relativo ao mapa */
+.stDeckGlJsonChart {
+  margin: 0px;
+  /* width: calc(100% - 10px); */
+}
+
+/* Relativo ao chart */
+[data-testid="stStyledFullScreenFrame"]{
+  height: 500px;
+}
+
+.stTextInput {
+  background-color: #0E1117;
+  border: 15px solid white;
+  border-radius: 5px;
+  padding: 15px 30px 25px 30px;
+  width: 50%;
+  position: absolute;
+  left: 25%;
+  margin-top: 45vh;
+}
+
+/* label::before {
+  content: "Seja bem vindo(a)";
+  position: relative;
+  left: 35%;
+  margin-top: 0px;
+  margin-bottom: 35px;
+  font-size: 3em;
+  font-weight: bold;
+  color: white;
+} */
+
+.row-widget{
+  display: grid;
+  place-items: center;
+}
+
+.stButton{
+  color: orange;
+  font-weight: bold;
+  padding: 15px 30px;
+  /* position: static;
+  left: 8%;
+  top: 50%;
+  transform: translateY(35%); */
+  justify-self: center;
+  align-self: center;
+  display: inline OR inline-block;
+  vertical-align: middle;
+}
