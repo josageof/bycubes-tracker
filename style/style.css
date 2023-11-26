@@ -79,6 +79,10 @@ header {visibility: hidden;}
   margin-top: 45vh;
 }
 
+[data-testid="stWidgetLabel"]{
+  padding-bottom: 15px;
+}
+
 /* label::before {
   content: "Seja bem vindo(a)";
   position: relative;
@@ -91,8 +95,10 @@ header {visibility: hidden;}
 } */
 
 .row-widget{
+  height: 120px;
   display: grid;
   place-items: center;
+  padding-bottom: 30px;
 }
 
 .stButton{

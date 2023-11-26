@@ -23,7 +23,7 @@ warnings.filterwarnings("ignore")
 st.set_page_config(
     layout="wide",
     page_title="byCubes Tracker",
-    page_icon="🗺️",
+    page_icon="🏁",
 )
 
 # %%===========================================================================
@@ -173,6 +173,8 @@ except:
     st.warning('Você excedeu a cota de uso do Google Cloud API. Espere 1 minuto e tente novamente.')
     st.stop()
 
+# st.write(df_rdo_times)
+
 ## Concatena as df de produção
 cat_df_prod = pd.concat([df_prod_rt2, 
                          df_prod_rt3, 
@@ -198,12 +200,12 @@ cat_sbp_gdf_prod = cat_sbp_gdf.merge(df_aquisicao_sbp, on='Linha', how='inner')
 
 
 ## Se há alguma produção...
-if len(cat_mbes_gdf_prod):
+if len(cat_mbes_gdf_prod['Aquisição']):
     ## Aquisição de dados (MBES)
     cat_mbes_gdf_prod['Aquisição'] = pd.to_datetime(cat_mbes_gdf_prod['Aquisição'], format='%d/%m/%Y')
 
     ## Penúltimo dia de produção se houve mais que um
-    if len(cat_mbes_gdf_prod) == 1:
+    if len(cat_mbes_gdf_prod['Aquisição'].unique()) == 1:
         prelast_mbes_acq_day = cat_mbes_gdf_prod['Aquisição'].max()
     else:
         prelast_mbes_acq_day = cat_mbes_gdf_prod['Aquisição'].sort_values().unique()[-2]
@@ -243,12 +245,12 @@ else:
 
 
 ## Se há alguma produção...
-if len(cat_sss_gdf_prod):
+if len(cat_sss_gdf_prod['Aquisição']):
     ## Aquisição de dados (SSS)
     cat_sss_gdf_prod['Aquisição'] = pd.to_datetime(cat_sss_gdf_prod['Aquisição'], format='%d/%m/%Y')
 
     ## Penúltimo dia de produção se houve mais que um
-    if len(cat_sss_gdf_prod) == 1:
+    if len(cat_sss_gdf_prod['Aquisição'].unique()) == 1:
         prelast_sss_acq_day = cat_sss_gdf_prod['Aquisição'].max()
     else:
         prelast_sss_acq_day = cat_sss_gdf_prod['Aquisição'].sort_values().unique()[-2]
@@ -288,12 +290,12 @@ else:
 
 
 ## Se há alguma produção...
-if len(cat_sbp_gdf_prod):
+if len(cat_sbp_gdf_prod['Aquisição']):
     ## Aquisição de dados (SBP)
     cat_sbp_gdf_prod['Aquisição'] = pd.to_datetime(cat_sbp_gdf_prod['Aquisição'], format='%d/%m/%Y')
 
     ## Penúltimo dia de produção se houve mais que um
-    if len(cat_sbp_gdf_prod) == 1:
+    if len(cat_sbp_gdf_prod['Aquisição'].unique()) == 1:
         prelast_sbp_acq_day = cat_sbp_gdf_prod['Aquisição'].max()
     else:
         prelast_sbp_acq_day = cat_sbp_gdf_prod['Aquisição'].sort_values().unique()[-2]

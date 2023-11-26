@@ -24,7 +24,7 @@ def comp_title():
     # Cria o HTML com o título
     html = f"""
         <div style="{container_style}">
-            <h1 style="color: white;">📅 byCubes Tracker 📊</h1>
+            <h1 style="color: white;">📅 TR2022027 Tracker 📊</h1>
         </div>
     """
     return html
