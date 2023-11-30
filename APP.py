@@ -82,11 +82,13 @@ def rdo_data_proc(df):
     df["data"] = pd.to_datetime(df["data"], format="%d/%m/%Y").dt.date
     # Preenche os valores nan com zeros
     df.iloc[:, 1:9] = df.iloc[:, 1:9].fillna("0:00")
+    df.iloc[:, 1:9] = df.iloc[:, 1:9].replace("24:00","23:59")
     # Converte colunas de tempo para o formato desejado (HH:MM)
     for col in df.columns[1:9]:
         df[col] = pd.to_datetime(df[col], format="%H:%M", errors='coerce') - pd.to_datetime("1900-01-01 00:00")
         # df[col] = pd.to_datetime(df[col], format="%H:%M:%S")
         # df[col] = df[col].dt.strftime('%H:%M')
+    # print(df['operação'][17]) 
     return df
 
 
